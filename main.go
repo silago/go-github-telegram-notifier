@@ -59,6 +59,12 @@ func (n *Notifier) Handler(writer http.ResponseWriter, r *http.Request) {
 	}
 	//var request_type string = r.Header.Get("HTTP_X_GITHUB_EVENT")
 	var request_type string = os.Getenv("Http_X_Github_Event")
+	for name, values := range r.Header {
+	    // Loop over all values for the name.
+	    for _, value := range values {
+		fmt.Println(name, value)
+	    }
+}
 
 	switch request_type {
 	case push_event_type:
