@@ -57,7 +57,8 @@ func (n *Notifier) Handler(writer http.ResponseWriter, r *http.Request) {
 	if _, err := writer.Write([]byte(response)); err != nil {
 		log.Println(err.Error())
 	}
-	var request_type string = r.Header.Get("HTTP_X_GITHUB_EVENT")
+	//var request_type string = r.Header.Get("HTTP_X_GITHUB_EVENT")
+	var request_type string = r.Header.Get("Http_X_Github_Event")
 
 	switch request_type {
 	case push_event_type:
